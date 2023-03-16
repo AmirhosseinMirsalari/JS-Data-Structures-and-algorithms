@@ -27,6 +27,24 @@ class LinkedList {
     }
   }
 
+  find(value) {
+    if (!this.head) {
+      return
+    }
+
+    let curElement = this.head
+
+    while (curElement) {
+      if (curElement.value === value) {
+        return curElement
+      }
+
+      curElement = curElement.next
+    }
+
+    return
+  }
+
   delete(value) {
     if (!this.head) {
       return
