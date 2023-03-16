@@ -27,6 +27,30 @@ class LinkedList {
     }
   }
 
+  delete(value) {
+    if (!this.head) {
+      return
+    }
+
+    while (this.head && this.head.value === value) {
+      this.head = this.head.next
+    }
+
+    let curElement = this.head
+
+    while (curElement.next) {
+      if (curElement.next.value === value) {
+        curElement.next = curElement.next.next
+      } else {
+        curElement = curElement.next
+      }
+    }
+
+    if (this.tail.value === value) {
+      this.tail = curElement
+    }
+  }
+
   toArray() {
     const elements = []
 
@@ -48,5 +72,6 @@ linkedlist.append('s')
 linkedlist.append('s')
 linkedlist.append(true)
 linkedlist.prepend('First Value')
+linkedlist.delete('s')
 
 console.log(linkedlist.toArray())
