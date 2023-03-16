@@ -17,6 +17,16 @@ class LinkedList {
     }
   }
 
+  prepend(value) {
+    const newElement = { value: value, next: this.head }
+
+    this.head = newElement
+
+    if (!this.tail) {
+      this.tail = newElement
+    }
+  }
+
   toArray() {
     const elements = []
 
@@ -37,5 +47,6 @@ linkedlist.append(2)
 linkedlist.append('s')
 linkedlist.append('s')
 linkedlist.append(true)
+linkedlist.prepend('First Value')
 
 console.log(linkedlist.toArray())
