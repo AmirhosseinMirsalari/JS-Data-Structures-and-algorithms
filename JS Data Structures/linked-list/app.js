@@ -45,6 +45,15 @@ class LinkedList {
     return
   }
 
+  insertAfter(value, afterValue) {
+    const existingElement = this.find(afterValue)
+
+    if (existingElement) {
+      const newElement = { value: value, next: existingElement.value }
+      existingElement.next = newElement
+    }
+  }
+
   delete(value) {
     if (!this.head) {
       return
@@ -85,11 +94,13 @@ class LinkedList {
 
 const linkedlist = new LinkedList()
 
-linkedlist.append(2)
+linkedlist.append("2")
 linkedlist.append('s')
 linkedlist.append('s')
 linkedlist.append(true)
 linkedlist.prepend('First Value')
 linkedlist.delete('s')
+linkedlist.insertAfter('new value', "2")
+
 
 console.log(linkedlist.toArray())
